@@ -27,6 +27,7 @@ app.post("/pagos", function (req, res) {
     res.json({
       persona: body,
     });
+    console.log("Llego un POST a la URL");
   }
 });
 
