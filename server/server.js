@@ -11,12 +11,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.get("/usuario", function (req, res) {
+app.get("/pagos", function (req, res) {
   res.json("get Usuario LOCAL!!!");
+  console.log("Llego un GET a la URL");
 });
 
 app.post("/pagos", function (req, res) {
   let body = req.body;
+  console.log("Llego un POST a la URL");
+  console.log("Data: ", body);
 
   if (body === undefined) {
     res.status(400).json({
@@ -24,10 +27,11 @@ app.post("/pagos", function (req, res) {
       mensaje: "El nombre es necesario",
     });
   } else {
-    res.json({
+    let data = res.json({
       persona: body,
     });
-    console.log("Llego un POST a la URL");
+    console.log("Llego un POST a la URL parse");
+    console.log("Data Parse: ", data);
   }
 });
 
