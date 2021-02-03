@@ -14,12 +14,14 @@ app.use(bodyParser.json());
 app.get("/pagos", function (req, res) {
   res.json("get Usuario LOCAL!!!");
   console.log("Llego un GET a la URL");
+  console.log("Data: ", req);
 });
 
 app.post("/pagos", function (req, res) {
   let body = req.body;
   console.log("Llego un POST a la URL");
   console.log("Data: ", body);
+  console.log("Data: ", req);
 
   if (body === undefined) {
     res.status(400).json({
@@ -30,8 +32,6 @@ app.post("/pagos", function (req, res) {
     let data = res.json({
       persona: body,
     });
-    console.log("Llego un POST a la URL parse");
-    console.log("Data Parse: ", data);
   }
 });
 
