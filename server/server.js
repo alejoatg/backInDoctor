@@ -21,7 +21,6 @@ app.post("/pagos", function (req, res) {
   let body = req.body;
   console.log("Llego un POST a la URL");
   console.log("Data: ", body);
-  console.log("Data: ", req);
 
   if (body === undefined) {
     res.status(400).json({
