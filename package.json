@@ -10,7 +10,9 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "md5": "^2.3.0"
+        "firebase": "^8.2.5",
+        "md5": "^2.3.0",
+        "nodemon": "^2.0.7"
     },
     "devDependencies": {
         "body-parser": "^1.19.0",
