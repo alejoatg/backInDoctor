@@ -11,10 +11,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.get("/pagos", function (req, res) {
+app.get("/pagosRes", function (req, res) {
   res.json("get Usuario LOCAL!!!");
   console.log("Llego un GET a la URL");
-  console.log("Data: ", req);
+  console.log("Data: ", req.url);
 });
 
 app.post("/pagos", function (req, res) {
