@@ -104,6 +104,7 @@ app.post("/pagos", function (req, res) {
           .doc(body.reference_sale)
           .update({
             estado: "Confirmada",
+            novedadPago: "Pago Aceptado",
           })
           .then(() => {
             console.log("Confirmando Oferta");
@@ -117,7 +118,8 @@ app.post("/pagos", function (req, res) {
           .collection("solicitudes")
           .doc(body.reference_sale)
           .update({
-            estado: "Pago Declinado",
+            estado: "Reservada",
+            novedadPago: "Pago Declinado",
           })
           .then(() => {
             console.log("Confirmando Oferta");
@@ -131,7 +133,8 @@ app.post("/pagos", function (req, res) {
           .collection("solicitudes")
           .doc(body.reference_sale)
           .update({
-            estado: "Pago Expirado",
+            estado: "Reservada",
+            novedadPago: "Pago Expirado",
           })
           .then(() => {
             console.log("Confirmando Oferta");
