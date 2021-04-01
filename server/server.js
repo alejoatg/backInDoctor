@@ -82,7 +82,8 @@ app.post("/pagos", function (req, res) {
           });
       }
     });
-
+    var idSolicitud = body.reference_sale.slice(4);
+    console.log("Referencia: ", idSolicitud, " = ", body.extra1);
     firebase.db
       .collection("pagos")
       .doc(body.transaction_id)
@@ -101,7 +102,7 @@ app.post("/pagos", function (req, res) {
       case "4":
         firebase.db
           .collection("solicitudes")
-          .doc(body.reference_sale)
+          .doc(idSolicitud)
           .update({
             estado: "Confirmada",
             novedadPago: "Pago Aceptado",
@@ -116,7 +117,7 @@ app.post("/pagos", function (req, res) {
       case "6":
         firebase.db
           .collection("solicitudes")
-          .doc(body.reference_sale)
+          .doc(idSolicitud)
           .update({
             estado: "Reservada",
             novedadPago: "Pago Declinado",
@@ -131,7 +132,7 @@ app.post("/pagos", function (req, res) {
       case "5":
         firebase.db
           .collection("solicitudes")
-          .doc(body.reference_sale)
+          .doc(idSolicitud)
           .update({
             estado: "Reservada",
             novedadPago: "Pago Expirado",
@@ -148,17 +149,7 @@ app.post("/pagos", function (req, res) {
         break;
     }
   } else {
-  }
-
-  if (body === undefined) {
-    res.status(400).json({
-      ok: false,
-      mensaje: "El nombre es necesario",
-    });
-  } else {
-    let data = res.json({
-      data: body,
-    });
+    console.log("Firma Invalida");
   }
 });
 
