@@ -93,11 +93,9 @@ app.post("/pagos", function (req, res) {
       })
       .then(() => {
         console.log("Registrado Pago");
-        res.json("Pago Registrado");
       })
       .catch((error) => {
         console.log("Error: ", error);
-        res.json("Error Registrado Pago");
       });
 
     switch (body.state_pol) {
