@@ -93,9 +93,11 @@ app.post("/pagos", function (req, res) {
       })
       .then(() => {
         console.log("Registrado Pago");
+        res.json("Pago Registrado");
       })
       .catch((error) => {
         console.log("Error: ", error);
+        res.json("Error Registrado Pago");
       });
 
     switch (body.state_pol) {
@@ -109,9 +111,11 @@ app.post("/pagos", function (req, res) {
           })
           .then(() => {
             console.log("Confirmando Oferta");
+            res.json("Confirmando Oferta");
           })
           .catch((error) => {
             console.log("Error: ", error);
+            res.json("Error Confirmando Oferta");
           });
         break;
       case "6":
@@ -124,9 +128,11 @@ app.post("/pagos", function (req, res) {
           })
           .then(() => {
             console.log("Confirmando Oferta");
+            res.json("Confirmando Oferta");
           })
           .catch((error) => {
             console.log("Error: ", error);
+            res.json("Error Confirmando Oferta");
           });
         break;
       case "5":
@@ -139,17 +145,21 @@ app.post("/pagos", function (req, res) {
           })
           .then(() => {
             console.log("Confirmando Oferta");
+            res.json("Confirmando Oferta");
           })
           .catch((error) => {
             console.log("Error: ", error);
+            res.json("Error Confirmando Oferta");
           });
         break;
 
       default:
+        res.json("Error Confirmando Oferta");
         break;
     }
   } else {
     console.log("Firma Invalida");
+    res.json("Firma Invalida");
   }
 });
 
