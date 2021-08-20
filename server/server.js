@@ -66,7 +66,7 @@ app.post("/pagos", function (req, res) {
   }
 
   const signature = md5(
-    `4Vj8eK4rloUd272L48hsrarnUA~${body.merchant_id}~${body.reference_sale}~${valuePOST}~${body.currency}~${body.state_pol}`
+    `5UnOZ3RtYR465rw70qqM6S3T6d~${body.merchant_id}~${body.reference_sale}~${valuePOST}~${body.currency}~${body.state_pol}`
   );
   console.log("Firma POST:", signature);
 
